@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cuenta regresiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      background: #fff;
+    }
+    .texto {
+      color: #a27caf;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .contador {
+      color: #f0a390;
+      font-size: 28px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .footer {
+      color: #a27caf;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="texto">Faltan</div>
+  <div class="contador" id="countdown">Cargando...</div>
+  <div class="footer">días para el lanzamiento de <strong>Mi nombre es Emilia del Valle</strong></div>
+  <script>
+    (function() {
+      const ahora = new Date();
+      const destino = new Date("2025-05-20T00:00:00");
+      const msRestantes = destino - ahora;
+      if (msRestantes <= 0) {
+        document.getElementById("countdown").textContent = "¡Ya llegó el día!";
+        return;
+      }
+      const totalHoras = Math.floor(msRestantes / (1000 * 60 * 60));
+      const dias = Math.floor(totalHoras / 24);
+      const horas = totalHoras % 24;
+      document.getElementById("countdown").textContent = `${dias} días y ${horas} horas`;
+    })();
+  </script>
+</body>
+</html>
